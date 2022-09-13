@@ -8,8 +8,7 @@ arquivo_final = f'{sys.argv[2]}_ranking.xlsx'
 def importar_dados_planilha(nome_arquivo, arquivo_final):
     player = []
     score = []
-    ranking = pd.read_excel(nome_arquivo, sheet_name="Final Scores",
-                            skiprows=range(0,2))
+    ranking = pd.read_excel(nome_arquivo, sheet_name="Final Scores", engine='openpyxl', skiprows=range(0,2))
     for i in range(0, len(ranking)):
         player.append(ranking["Player"][i])
         score.append(ranking["Total Score (points)"][i])
